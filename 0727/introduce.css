@@ -575,10 +575,13 @@ body {
   color: var(--accent-blue);
 }
 
-/* ==================== RESPONSIVE DESIGN ==================== */
+/* ==================== RESPONSIVE DESIGN (모바일 최적화) ==================== */
+
+/* 1. 태블릿 & 스마트폰 공통 (900px 이하) */
 @media (max-width: 900px) {
   .container {
     flex-direction: column;
+    width: 100%;
   }
 
   .profile-card {
@@ -588,28 +591,84 @@ body {
     border-right: none;
     border-bottom: 1px solid var(--border-color);
     border-radius: 0 0 24px 24px;
-    padding: 40px 24px;
+    padding: 36px 20px 28px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   }
 
   .grid-section {
-    padding: 30px 20px;
-    grid-template-columns: 1fr;
+    padding: 24px 16px 40px;
+    grid-template-columns: minmax(0, 1fr); /* 긴 콘텐츠로 인한 Grid 깨짐 방지 */
+    gap: 16px;
   }
 
-  .full-width-card, .contact-card {
+  .full-width-card, 
+  .contact-card,
+  .os-skills-card,
+  .lang-skills-card {
     grid-column: span 1;
+    width: 100%;
+  }
+
+  /* OS 및 언어 게이지 카드 세로 1열 배치로 변경 */
+  .os-list,
+  .lang-list {
+    grid-template-columns: 1fr;
+    gap: 16px;
   }
 
   .social-links {
     flex-direction: column;
+    width: 100%;
   }
 
-  .os-skills-card {
-    grid-column: span 1;
+  /* 텍스트 줄바꿈 및 화면 이탈 방지 속성 */
+  p, span, a, h1, h2, h3 {
+    overflow-wrap: break-word;
+    word-break: keep-all;
+  }
+}
+
+/* 2. 초소형 스마트폰 화면 (480px 이하) */
+@media (max-width: 480px) {
+  .profile-card {
+    padding: 28px 16px 20px;
+    border-radius: 0 0 16px 16px;
   }
 
-  .lang-list {
-    grid-template-columns: 1fr;
-  }  
+  .avatar {
+    width: 110px;
+    height: 110px;
+  }
+
+  .profile-info h1 {
+    font-size: 1.6rem;
+  }
+
+  .profile-info .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .card {
+    padding: 20px 16px;
+    border-radius: 16px;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    margin-bottom: 16px;
+  }
+
+  .timeline {
+    padding-left: 20px;
+  }
+
+  .timeline-item {
+    padding: 12px 14px;
+  }
+
+  .timeline-item::before {
+    left: -26px; /* 노드 위치 수정 */
+    width: 10px;
+    height: 10px;
+  }
 }
