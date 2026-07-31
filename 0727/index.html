@@ -210,25 +210,30 @@
         <h2 class="card-title">✦ Projects</h2>
         <div class="project-list">
     
-          <!-- 프로젝트 1: 유튜브 영상 적용 -->
+          <!-- 프로젝트 1: 단상 모터 제어 -->
           <article class="project-item">
             <div class="project-media">
-              <div class="video-container">
-                <iframe 
-                  src="https://www.youtube.com/embed/wzaPUGCBsP8" 
-                  title="단상 모터 제어 시연 영상" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen>
-                </iframe>
+              <!-- youtube-facade 클래스와 data-video-id 추가 -->
+              <div class="video-container youtube-facade" data-video-id="wzaPUGCBsP8">
+                <img 
+                  src="https://img.youtube.com/vi/wzaPUGCBsP8/hqdefault.jpg" 
+                  alt="단상 모터 제어 시연 영상 썸네일" 
+                  class="facade-thumb"
+                >
+                <button class="facade-play-btn" aria-label="영상 재생">
+                  <!-- 삼각형 그리기 -->
+                  <svg viewBox="0 0 68 48" width="100%" height="100%">
+                    <path class="play-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-.13,27.1-1.55c2.93-.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"/>
+                    <path d="M 45,24 27,14 27,34" fill="#fff"/>
+                  </svg>
+                </button>
               </div>
             </div>
 
             <div class="project-content">
-              <span class="project-date">2020.03</span>
+              <span class="project-date">2026.06</span>
               <h3 class="project-title">단상 모터 제어</h3>
-              <p class="project-desc">
-                버튼을 눌러 모터를 제어하고 과전류가 흐를시 열동계전기로 인해 차단기가 작동합니다.
-              </p>
+              <p class="project-desc">버튼을 눌러 모터를 제어하고 과전류가 흐를시 열동계전기로 인해 차단기가 작동합니다.</p>
               <div class="skills-wrapper">
                 <span class="skill-tag">#자동화제어</span>
                 <span class="skill-tag">#회로설계</span>
@@ -236,23 +241,55 @@
             </div>
           </article>
 
-          <!-- 프로젝트 2: 위치 교차 및 유튜브 영상 적용 -->
+          <!-- 프로젝트 2: 롤 매드무비 -->
           <article class="project-item project-reverse">
             <div class="project-media">
-              <div class="video-container">
-                <iframe 
-                  src="https://www.youtube.com/embed/PXIPtrKpVmQ" 
-                  title="프로젝트 시연 영상" 
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                  allowfullscreen>
-                </iframe>
+              <div class="video-container youtube-facade" data-video-id="PXIPtrKpVmQ">
+                <img 
+                  src="https://img.youtube.com/vi/PXIPtrKpVmQ/hqdefault.jpg" 
+                  alt="프로젝트 시연 영상 썸네일" 
+                  class="facade-thumb"
+                >
+                <button class="facade-play-btn" aria-label="영상 재생">
+                  <!-- 삼각형 그리기 -->
+                  <svg viewBox="0 0 68 48" width="100%" height="100%">
+                    <path class="play-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-.13,27.1-1.55c2.93-.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"/>
+                    <path d="M 45,24 27,14 27,34" fill="#fff"/>
+                  </svg>
+                </button>
               </div>
             </div>
 
             <div class="project-content">
-              <span class="project-date">2026.05</span>
+              <span class="project-date">2026.02</span>
               <h3 class="project-title">롤 매드무비</h3>
               <p class="project-desc">저의 피지컬과 집중력을 잘 보여주는 게임 하이라이트 영상입니다.</p>
+            </div>
+          </article>
+
+          <!-- 추천 영상 -->
+          <article class="project-item">
+            <div class="project-media">
+              <div class="video-container youtube-facade" data-video-id="W9OJV4o1AdA">
+                <img 
+                  src="https://img.youtube.com/vi/W9OJV4o1AdA/hqdefault.jpg" 
+                  alt="추천영상" 
+                  class="facade-thumb"
+                >
+                <button class="facade-play-btn" aria-label="영상 재생">
+                  <!-- 삼각형 그리기 -->
+                  <svg viewBox="0 0 68 48" width="100%" height="100%">
+                    <path class="play-bg" d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-.13,27.1-1.55c2.93-.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z" fill="#212121" fill-opacity="0.8"/>
+                    <path d="M 45,24 27,14 27,34" fill="#fff"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <span class="project-date">추천 영상</span>
+              <h3 class="project-title">톰의 자장가</h3>
+              <p class="project-desc">Go to sleep~ go to sleep~</p>
             </div>
           </article>
 
