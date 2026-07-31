@@ -12,6 +12,12 @@
   --text-muted: #adb5bd;      
   --border-color: rgba(255, 255, 255, 0.12);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* 어두운 은하수 그래픽 변수 */
+  --galaxy-gas: radial-gradient(circle at 20% 20%, rgba(114, 9, 183, 0.25) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(72, 202, 228, 0.2) 0%, transparent 45%),
+                linear-gradient(135deg, rgba(11, 19, 43, 0.9) 0%, rgba(20, 10, 40, 0.8) 50%, rgba(8, 13, 26, 0.95) 100%);
+  --star-color-1: rgba(255, 255, 255, 0.9);
+  --star-color-2: rgba(144, 224, 239, 0.9);
 }
 
 /* ==================== BASE STYLES & GALAXY BG ==================== */
@@ -21,7 +27,7 @@
   box-sizing: border-box;
 }
 
-body {
+ body {
   font-family: 'Poppins', 'Noto Sans KR', sans-serif;
   color: var(--text-main);
   line-height: 1.6;
@@ -31,7 +37,7 @@ body {
 
   background-color: var(--bg-color);
   background-image: 
-    /* 1. 먼지 별빛 */
+     /* 1. 먼지 별빛  */
     radial-gradient(0.8px 0.8px at 15px 25px, rgba(255, 255, 255, 0.9), rgba(0,0,0,0)),
     radial-gradient(0.8px 0.8px at 75px 115px, rgba(255, 255, 255, 0.7), rgba(0,0,0,0)),
     radial-gradient(1px 1px at 130px 65px, rgba(255, 255, 255, 0.8), rgba(0,0,0,0)),
@@ -48,9 +54,7 @@ body {
     radial-gradient(2px 2px at 280px 90px, rgba(200, 240, 255, 0.95), rgba(0,0,0,0)),
     
     /* 4. 은하수 성운 가스 */
-    radial-gradient(circle at 20% 20%, rgba(114, 9, 183, 0.25) 0%, transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(72, 202, 228, 0.2) 0%, transparent 45%),
-    linear-gradient(135deg, rgba(11, 19, 43, 0.9) 0%, rgba(20, 10, 40, 0.8) 50%, rgba(8, 13, 26, 0.95) 100%);
+    var(--galaxy-gas);
   
   background-repeat: repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, repeat, no-repeat, no-repeat, no-repeat;
   background-size: 
@@ -60,7 +64,10 @@ body {
     100% 100%, 100% 100%, 100% 100%;
 
   animation: galaxyGlow 20s ease-in-out infinite alternate;
-}
+  transition: background-color 0.4s ease, color 0.4s ease;
+} 
+
+
 
 @keyframes galaxyGlow {
   0% {
@@ -77,6 +84,57 @@ body {
       -10px 15px, 25px -20px, 
       10% 15%, 90% 85%, 0 0;
   }
+}
+
+/* ==================== LIGHT MODE OVERRIDES ==================== */
+body.light-mode {
+  --bg-color: #f0f4f9;              /* 전체 배경 (맑고 밝은 하늘빛 화이트) */
+  --sidebar-bg: #ffffff;            /* 프로필 사이드바 화이트 */
+  --card-bg: rgba(255, 255, 255, 0.75); /* 오른쪽 카드 반투명 유리 */
+  --card-hover: rgba(255, 255, 255, 0.95);
+  --accent-blue: #0077b6;           /* 가독성을 위해 시원하고 진한 파랑 */
+  --accent-glow: #023e8a;           /* 강조 텍스트용 깊은 진파랑 */
+  --text-main: #1d2d44;             /* 메인 글자색 (어두운 블루-그레이) */
+  --text-muted: #6c757d;            /* 보조 글자색 */
+  --border-color: rgba(0, 0, 0, 0.08); /* 연한 테두리 */
+  --item-bg: rgba(0, 0, 0, 0.02);
+
+  /* 밝은 구름/하늘 오로라 그래픽 변수 */
+  --galaxy-gas: radial-gradient(circle at 20% 20%, rgba(144, 224, 239, 0.35) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(203, 178, 254, 0.35) 0%, transparent 50%),
+                linear-gradient(135deg, #e0f2fe 0%, #f3e8ff 50%, #f0f4f9 100%);
+  --star-color-1: rgba(56, 189, 248, 0.4);  /* 은은한 하늘색 별빛 반짝임 */
+  --star-color-2: rgba(168, 85, 247, 0.4);
+}
+
+/* 라이트 모드 카드 그림자 개선 */
+body.light-mode .card {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+}
+body.light-mode .card:hover {
+  box-shadow: 0 15px 35px rgba(0, 77, 182, 0.12);
+}
+body.light-mode .profile-card {
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.03);
+}
+
+/* 라이트 모드 전용 아바타(프로필 액자) 스타일 추가 */
+body.light-mode .avatar {
+  /* 테두리 그라데이션을 밝은 하늘색~파스텔 보라로 변경 */
+  background-image: linear-gradient(var(--sidebar-bg), var(--sidebar-bg)), 
+                    linear-gradient(135deg, #00b4d8, var(--sidebar-bg), #9d4edd);
+  
+  /* 그림자를 은은하고 투명도 높은 파스텔 톤으로 변경 */
+  box-shadow: 
+    0 4px 15px rgba(255, 100, 129, 0.3),
+    0 8px 25px rgba(255, 198, 117, 0.25);
+}
+
+/* 마우스 올렸을 때(Hover) 그림자 효과 */
+body.light-mode .avatar:hover {
+  box-shadow: 
+    0 6px 20px rgba(255, 100, 129, 0.5),
+    0 10px 32px rgba(255, 198, 117, 0.4);
 }
 
 /* ==================== LAYOUT CONTAINER ==================== */
@@ -195,8 +253,6 @@ body {
   border-radius: 20px;
   padding: 28px;
   transition: var(--transition);
-  backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
 }
 
 .card:hover {
@@ -343,7 +399,6 @@ body {
   justify-content: space-between;
   align-items: center;
   font-size: 0.95rem;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .lang-name {
@@ -402,12 +457,13 @@ body {
   box-shadow: 0 0 8px rgba(72, 202, 228, 0.6);
 }
 
+/* timeline-item 내의 고정 배경색을 변수로 변경 */
 .timeline-item {
   position: relative;
   padding: 16px 20px;
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--item-bg); /* [수정] rgba(255,255,255,0.02) -> var(--item-bg) */
+  border: 1px solid var(--border-color);
   transition: var(--transition);
 }
 
@@ -484,12 +540,13 @@ body {
   gap: 36px;
 }
 
+/* project-item 내의 고정 배경색을 변수로 변경 */
 .project-item {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
   gap: 24px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--item-bg); /* [수정] rgba(255,255,255,0.02) -> var(--item-bg) */
+  border: 1px solid var(--border-color);
   border-radius: 16px;
   padding: 20px;
   transition: var(--transition);
@@ -506,16 +563,6 @@ body {
   flex-direction: column;
   gap: 10px;
   width: 100%;
-}
-
-.media-main, 
-.media-video {
-  width: 100%; /* [수정] 500px 고정값 제거하여 그리드 비율에 맞춤 */
-  height: 300px;
-  object-fit: cover;
-  border-radius: 10px;
-  border: 1px solid var(--border-color);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .video-container {
@@ -647,6 +694,36 @@ body {
 
 .profile-contact a.value:hover {
   color: var(--accent-blue);
+}
+
+/* ==================== TOGGLE BUTTON STYLES ==================== */
+.theme-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--item-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  color: var(--text-main);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 10px;
+}
+
+.theme-toggle-btn:hover {
+  background: var(--card-hover);
+  border-color: var(--accent-blue);
+  transform: translateY(-2px);
+  color: var(--accent-blue);
+}
+
+.theme-toggle-btn .toggle-icon {
+  font-size: 1.1rem;
 }
 
 /* ==================== RESPONSIVE DESIGN ==================== */

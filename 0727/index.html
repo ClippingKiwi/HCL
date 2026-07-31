@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- css 파일 연결 -->
   <link rel="stylesheet" href="introduce1.css">
   <title>프로필 | introduce</title>
   <!-- Google Fonts (Noto Sans KR, Poppins) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-  
+  <!-- 자바스크립트 파일 연결 -->
+  <script src="toggle.js" defer></script>
 </head>
 <body>
 
@@ -29,28 +31,33 @@
         </p>
       </div>
       <!-- 프로필 카드 내부에 추가할 연락처 정보 -->
-    <ul class="profile-contact">
-    <li>
-        <span class="label">Email</span>
-        <a href="mailto:example@gmail.com" class="value">example@gmail.com</a>
-    </li>
-    <li>
-        <span class="label">Phone</span>
-        <span class="value">010-1234-5678</span>
-    </li>
-    <li>
-        <span class="label">GitHub</span>
-        <a href="https://github.com/ClippingKiwi" class="value" title="깃허브 바로가기">ClippingKiwi</a>
-    </li>
-    <li>
-        <span class="label">LOL</span>
-        <a href="https://op.gg/lol/summoners/kr/모카라떼샷추가-KR1" class="value" title="op.gg 바로가기">모카라떼샷추가</a>
-    </li>
-    <li>
-        <span class="label">Location</span>
-        <a href="https://www.google.com/maps/place/일본+가나가와현+요코하마시" class="value" title="구글 지도 보기">Yokohama, Japan</a>
-    </li>
-    </ul>
+      <ul class="profile-contact">
+        <li>
+          <span class="label">Email</span>
+          <a href="mailto:example@gmail.com" class="value">example@gmail.com</a>
+        </li>
+        <li>
+          <span class="label">Phone</span>
+          <span class="value">010-1234-5678</span>
+        </li>
+        <li>
+          <span class="label">GitHub</span>
+          <a href="https://github.com/ClippingKiwi" class="value" title="깃허브 바로가기">ClippingKiwi</a>
+        </li>
+        <li>
+          <span class="label">LOL</span>
+          <a href="https://op.gg/lol/summoners/kr/모카라떼샷추가-KR1" class="value" title="op.gg 바로가기">모카라떼샷추가</a>
+        </li>
+        <li>
+          <span class="label">Location</span>
+          <a href="https://www.google.com/maps/place/일본+가나가와현+요코하마시" class="value" title="구글 지도 보기">Yokohama, Japan</a>
+        </li>
+      </ul>
+      <!-- 💡 Location 밑에 추가된 테마 토글 버튼 -->
+      <button id="theme-toggle" class="theme-toggle-btn" aria-label="테마 전환">
+        <span class="toggle-icon">🌙</span>
+        <span class="toggle-text">밤 테마</span>
+      </button>
     </header>
 
     <!-- 세부 정보 그리드 -->
@@ -87,89 +94,86 @@
       </section>
 
       <!-- OS SKILLS SECTION -->
-    <section class="card os-skills-card">
-    <h2 class="card-title">✦ OS Skills</h2>
-    <ul class="os-list">
-        
-        <!-- Linux -->
-        <li class="os-gauge-item">
-        <div class="os-info">
-            <span class="os-name">MS Excel</span>
-            <span class="os-percentage">70%</span>
-        </div>
-        <div class="gauge-bar-bg">
-            <div class="gauge-bar-fill" style="width: 70%;"></div>
-        </div>
-        </li>
+      <section class="card os-skills-card">
+        <h2 class="card-title">✦ OS Skills</h2>
+        <ul class="os-list">
+          <!-- Linux -->
+          <li class="os-gauge-item">
+            <div class="os-info">
+              <span class="os-name">MS Excel</span>
+              <span class="os-percentage">70%</span>
+            </div>
+            <div class="gauge-bar-bg">
+              <div class="gauge-bar-fill" style="width: 70%;"></div>
+            </div>
+          </li>
+          <!-- Windows Server -->
+          <li class="os-gauge-item">
+            <div class="os-info">
+              <span class="os-name">Google</span>
+              <span class="os-percentage">85%</span>
+            </div>
+            <div class="gauge-bar-bg">
+              <div class="gauge-bar-fill" style="width: 85%;"></div>
+            </div>
+          </li>
 
-        <!-- Windows Server -->
-        <li class="os-gauge-item">
-        <div class="os-info">
-            <span class="os-name">Google</span>
-            <span class="os-percentage">85%</span>
-        </div>
-        <div class="gauge-bar-bg">
-            <div class="gauge-bar-fill" style="width: 85%;"></div>
-        </div>
-        </li>
+          <!-- macOS -->
+          <li class="os-gauge-item">
+            <div class="os-info">
+              <span class="os-name">Presentation</span>
+              <span class="os-percentage">75%</span>
+            </div>
+            <div class="gauge-bar-bg">
+              <div class="gauge-bar-fill" style="width: 75%;"></div>
+            </div>
+          </li>
+        </ul>
+      </section>
 
-        <!-- macOS -->
-        <li class="os-gauge-item">
-        <div class="os-info">
-            <span class="os-name">Presentation</span>
-            <span class="os-percentage">75%</span>
-        </div>
-        <div class="gauge-bar-bg">
-            <div class="gauge-bar-fill" style="width: 75%;"></div>
-        </div>
-        </li>
-
-    </ul>
-    </section>
-
-    <!-- ==================== LANGUAGE SKILLS CARD HTML ==================== -->
-    <!-- glass-card 대신 기존 카드 스타일인 card로 변경 -->
+      <!-- ==================== LANGUAGE SKILLS CARD HTML ==================== -->
+      <!-- glass-card 대신 기존 카드 스타일인 card로 변경 -->
       <section class="card lang-skills-card">
-      <div class="card-header">
-        <i class="fa-solid fa-language card-icon"></i>
-        <h3 class="card-title">✦ Language Skills</h3>
+        <div class="card-header">
+          <i class="fa-solid fa-language card-icon"></i>
+          <h3 class="card-title">✦ Language Skills</h3>
         </div>
         
         <div class="lang-list">
-        <!-- Item 1: Korean -->
-        <div class="lang-gauge-item">
+          <!-- Item 1: Korean -->
+          <div class="lang-gauge-item">
             <div class="lang-info">
-            <span class="lang-name">Korean (Native)</span>
-            <span class="lang-percentage">100%</span>
+              <span class="lang-name">Korean (Native)</span>
+              <span class="lang-percentage">100%</span>
             </div>
             <div class="gauge-bar-bg">
-            <div class="lang-gauge-fill" style="width: 100%;"></div>
+              <div class="lang-gauge-fill" style="width: 100%;"></div>
             </div>
-        </div>
+          </div>
 
-        <!-- Item 2: English -->
-        <div class="lang-gauge-item">
+          <!-- Item 2: English -->
+          <div class="lang-gauge-item">
             <div class="lang-info">
-            <span class="lang-name">English (Intermediate)</span>
-            <span class="lang-percentage">65%</span>
+              <span class="lang-name">English (Intermediate)</span>
+              <span class="lang-percentage">65%</span>
             </div>
             <div class="gauge-bar-bg">
-            <div class="lang-gauge-fill" style="width: 65%;"></div>
+              <div class="lang-gauge-fill" style="width: 65%;"></div>
             </div>
-        </div>
+          </div>
 
-        <!-- Item 3: Japanese -->
-        <div class="lang-gauge-item">
+          <!-- Item 3: Japanese -->
+          <div class="lang-gauge-item">
             <div class="lang-info">
-            <span class="lang-name">Japanese (Fluent)</span>
-            <span class="lang-percentage">80%</span>
+              <span class="lang-name">Japanese (Fluent)</span>
+              <span class="lang-percentage">80%</span>
             </div>
             <div class="gauge-bar-bg">
-            <div class="lang-gauge-fill" style="width: 80%;"></div>
+              <div class="lang-gauge-fill" style="width: 80%;"></div>
             </div>
+          </div>
         </div>
-        </div>
-    </section>
+      </section>
 
       <section class="card full-width-card">
         <h2 class="card-title">✦ Experience</h2>
@@ -201,50 +205,59 @@
         </div>
       </section>
 
-     <!-- ==================== PROJECTS CARD ==================== -->
-<section class="card full-width-card project-card">
-  <h2 class="card-title">✦ Projects</h2>
-  
-  <div class="project-list">
+      <!-- ==================== PROJECTS CARD ==================== -->
+      <section class="card full-width-card project-card">
+        <h2 class="card-title">✦ Projects</h2>
+        <div class="project-list">
+    
+          <!-- 프로젝트 1: 유튜브 영상 적용 -->
+          <article class="project-item">
+            <div class="project-media">
+              <div class="video-container">
+                <iframe 
+                  src="https://www.youtube.com/embed/wzaPUGCBsP8" 
+                  title="단상 모터 제어 시연 영상" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
 
-    <!-- 프로젝트 2: 동영상 재생 타입 (로컬 영상) -->
-    <article class="project-item">
-      <div class="project-media">
-        <video controls class="media-video">
-          <source src="img/motorcontrol.mp4" type="video/mp4">
-        </video>
-      </div>
+            <div class="project-content">
+              <span class="project-date">2020.03</span>
+              <h3 class="project-title">단상 모터 제어</h3>
+              <p class="project-desc">
+                버튼을 눌러 모터를 제어하고 과전류가 흐를시 열동계전기로 인해 차단기가 작동합니다.
+              </p>
+              <div class="skills-wrapper">
+                <span class="skill-tag">#자동화제어</span>
+                <span class="skill-tag">#회로설계</span>
+              </div>
+            </div>
+          </article>
 
-      <div class="project-content">
-        <span class="project-date">2026.03</span>
-        <h3 class="project-title">단상 모터 제어</h3>
-        <p class="project-desc">
-          버튼을 눌러 모터를 제어하고 과전류가 흐를시 열동계전기로 인해 차단기가 작동합니다.
-        </p>
-        <div class="skills-wrapper">
-          <span class="skill-tag">#자동화제어</span>
-          <span class="skill-tag">#회로설계</span>
+          <!-- 프로젝트 2: 위치 교차 및 유튜브 영상 적용 -->
+          <article class="project-item project-reverse">
+            <div class="project-media">
+              <div class="video-container">
+                <iframe 
+                  src="https://www.youtube.com/embed/PXIPtrKpVmQ" 
+                  title="프로젝트 시연 영상" 
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                  allowfullscreen>
+                </iframe>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <span class="project-date">2026.05</span>
+              <h3 class="project-title">롤 매드무비</h3>
+              <p class="project-desc">저의 피지컬과 집중력을 잘 보여주는 게임 하이라이트 영상입니다.</p>
+            </div>
+          </article>
+
         </div>
-      </div>
-    </article>
-
-    <!-- 두 번째 프로젝트: 위치 교차! (project-reverse 클래스 추가) -->
-    <article class="project-item project-reverse">
-      <div class="project-media">
-        <video controls class="media-video">
-          <source src="img/Vex_480.mp4" type="video/mp4">
-        </video>
-      </div>
-
-      <div class="project-content">
-        <span class="project-date">2026.05</span>
-        <h3 class="project-title">롤 매드무비</h3>
-        <p class="project-desc">저의 피지컬과 집중력을 잘 보여주는 게임 하이라이트 영상입니다.</p>
-      </div>
-    </article>
-
-  </div>
-</section>
+      </section>
 
       <!-- 연락처 및 링크 카드 -->
       <section class="card contact-card">
